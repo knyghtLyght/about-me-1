@@ -25,6 +25,7 @@ var question2 = prompt('Am I the best?').toUpperCase();
 console.log('The user entered:' + question2);
 var response2 = prompt('I thought you might say that!')
 console.log('the user entered:' + response2)
+
 if (response2 === 'yes') {
     alert('I thought you might say that!');
 }
