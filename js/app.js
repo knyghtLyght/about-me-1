@@ -1,6 +1,7 @@
 'use strict';
- var greeting = prompt ('Hello there!');
-console.log('The user entered:' + greeting);
+
+var greeting = alert('Hello there!');
+
 var response = prompt('would you like to learn some fun facts about me yes or no?').toUpperCase(); 
  console.log ('the user entered:' + response)
  if (response === 'yes') {
@@ -12,17 +13,38 @@ var response = prompt('would you like to learn some fun facts about me yes or no
 var userName = prompt ('before we begin may I have your name?')
 console.log('the user entered:'+ response)
 
-//var question1 = prompt('Are you my favorite').toUpperCase(); 
-//console.log('The user entered:' + question1);
-//var response1 = prompt('of course you are!')
-//console.log('the user entered:' + response1)
-//if (response1 === 'yes') {
-//alert('of course you are!');
-//}
-//else if (response1 === 'no') {
-//alert('of course you are!');
-//}
+// Global variable
+var qScore = 0;
+var qAttempts = 0;
+var qValidAns = false;
+var qAttempsLimit = 4;
+
+// Question 1
+function QuestionOne(){
+  do{
+    var question1 = prompt('Are you my favorite').toUpperCase(); 
+    console.log('The user entered:' + question1);
+    if (question1 === 'yes') {
+      alert('of course you are!');
+      qValidAns = true;
+      qScore++;
+    }
+    else if (question1 === 'no') {
+      alert('of course you are!');
+      qValidAns = true;
+    } else {
+      if(qAttempts < 3){
+      alert('Please answer yes or no');
+      qAttempts++;
+      } else {
+        alert('was it really that hard? You are out of guesses');
+      }
+    }
+  } while(qValidAns === false && qAttempts < qAttempsLimit);
+}
  
+QuestionOne();
+
 //var question2 = prompt('Am I the best?').toUpperCase();
 //console.log('The user entered:' + question2);
 //var response2 = prompt('I thought you might say that!')
@@ -59,3 +81,51 @@ console.log('the user entered:'+ response)
 
 //var theEnd = prompt ('I do love our little chats')
 //console.log ('the user entered:' + theEnd);
+
+// Question six
+qAttempts = 0;
+qValidAns = false;
+var favorite80sFLicks = ['real genius', 'war games', 'better off dead', 'the goonies'];
+do{
+  var flickGuess = promt('Can you guess my fav 80s flick?' + userName).toLowerCase();
+  console.log('q six ans' + flickGuess);
+  for(var i =0; i < favorite80sFLicks.length; i++){
+    if(flickGuess === favorite80sFLicks[0]){
+      alert('I\'m impressed!');
+      qScore++;
+      qValidAns = true;
+      break;
+    } 
+    if(flickGuess === favorite80sFLicks[1]){
+      alert('I\'m impressed!');
+      qScore++;
+      qValidAns = true;
+      break;
+    }
+    if(flickGuess === favorite80sFLicks[2]){
+      alert('I\'m impressed!');
+      qScore++;
+      qValidAns = true;
+      break;
+    }
+    if(flickGuess === favorite80sFLicks[3]){
+      alert('I\'m impressed!');
+      qScore++;
+      qValidAns = true;
+      break;
+    }
+    if(flickGuess === favorite80sFLicks[4]){
+      alert('I\'m impressed!');
+      qScore++;
+      qValidAns = true;
+      break;
+    } else {
+      if(qAttempts < 3){
+        alert('Nope. I\'ll give you a hint. Do you want to play a game');
+        qAttempts++;
+        } else {
+          alert('was it really that hard? You are out of guesses');
+        }
+      }
+    }
+} while (qValidAns === false && qAttempts < qAttempsLimit);
